@@ -1,0 +1,66 @@
+Given a string s, check if it can be constructed by taking a substring of it and appending multiple copies of the substring together.
+
+ 
+
+Example 1:
+
+Input: s = "abab"
+Output: true
+Explanation: It is the substring "ab" twice.
+Example 2:
+
+Input: s = "aba"
+Output: false
+Example 3:
+
+Input: s = "abcabcabcabc"
+Output: true
+Explanation: It is the substring "abc" four times or the substring "abcabc" twice.
+
+
+/**
+ * @param {string} s
+ * @return {boolean}
+ */
+var repeatedSubstringPattern = function(s) {
+    let size = s.length;
+    let sFold = s.substr(1, size) + s.substr(0, size-1);
+    
+    return sFold.indexOf( s ) != -1;
+
+//     const repeat = s.repeat(2);
+//   const slice = repeat.slice(1, -1);
+//   const check = slice.includes(s);
+//   return check;
+// repeat the string twice
+// slice the repeat string. first character and last character of the string.
+// check if s is present after slicing the stirng.
+// return the boolean value
+
+
+const length = s.length;
+
+    for (let i = 2; i <= length; i++) {
+        if (!(length%i)) {
+            const unit = length/i;
+            let unitString = '';
+            let isMatching = false;
+
+            for (let j = 0; j < i; j++) {
+                if (unitString && unitString !== s.slice(j*unit, (j+1) * unit)) {
+                    isMatching = false;
+                    break;
+                } else {
+                    unitString = s.slice(j*unit, (j+1) * unit);
+                    isMatching = true;
+                }
+            }
+            
+            if (isMatching) return true;
+        }
+    }
+        
+    return false;
+
+
+};
