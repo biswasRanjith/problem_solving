@@ -33,3 +33,7 @@ var canCross = function(stones) {
     }
     return false;
 };
+
+
+
+output 
