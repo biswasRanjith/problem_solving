@@ -1,0 +1,61 @@
+Given a string s, remove duplicate letters so that every letter appears once and only once. You must make sure your result is 
+the smallest in lexicographical order
+ among all possible results.
+
+ 
+
+Example 1:
+
+Input: s = "bcabc"
+Output: "abc"
+Example 2:
+
+Input: s = "cbacdcbc"
+Output: "acdb"
+
+source: https://leetcode-cn.com/problems/remove-duplicate-letters/solution/jsshi-xian-nei-cun-chao-guo-100su-du-chao-guo-82-b/
+
+This was solved by another great person careteenl in leetcode China, I share this since I found this very easy to understand and clean
+
+First, we need to know that JavaScript compare string by dictionary order, which means
+
+"zoo" > "apple"
+will return true since in dictionary if you turn page by page apple will always appear earlier than zoo.
+We can use array but as stack and compare letter to solve this. First we define array called stack:
+
+var stack = [];
+and we can start to iterate input s
+
+for (var i = 0; i < s.length; i++) {
+  // ...
+}
+and we need to check:
+
+Is top of stack's dictionary order bigger than s[i] ?
+If yes, does top of stack appear in characters later than s[i] ?
+If both of the situations are achieved, we need to remove top of the stack, and do it again until stack is empty. Finally We put the s[i] at top of stack. We remove the letters because the dictionary order of the letter is greater than s[i], and it will appears again, so we can still put it after next loop.
+
+And if s[i] is already existed in stack, we won't need to run the check loop again since stack is already sorted in dictionary order. Full code:
+
+var removeDuplicateLetters = function (s) {
+  var stack = [];
+  for (var i = 0; i < s.length; i++) {
+    var char = s[i];
+    // if s[i] already appears in stack, jump to next loop
+    if (stack.indexOf(char) > -1) continue;
+   while (
+      // when stack is not empty
+      stack.length > 0 &&
+      // when top of stack letter dictionary order is greater than s[i](z > a)
+      stack[stack.length - 1] > char &&
+      // when top of stack letter still appears in s not iterated yet letters
+      s.indexOf(stack[stack.length - 1], i) > i
+    ) {
+      // remove top of stack
+      stack.pop();
+    }
+    // put s[i] into top of stack
+    stack.push(char);
+  }
+  return stack.join("");
+};
