@@ -1,0 +1,39 @@
+You are given a 0-indexed 2D integer array flowers, where flowers[i] = [starti, endi] means the ith flower will be in full bloom from starti to endi (inclusive). You are also given a 0-indexed integer array people of size n, where people[i] is the time that the ith person will arrive to see the flowers.
+
+Return an integer array answer of size n, where answer[i] is the number of flowers that are in full bloom when the ith person arrives.
+
+Input: flowers = [[1,6],[3,7],[9,12],[4,13]], poeple = [2,3,7,11]
+Output: [1,2,2,2]
+Explanation: The figure above shows the times when the flowers are in full bloom and when the people arrive.
+For each person, we return the number of flowers in full bloom during their arrival.
+
+Input: flowers = [[1,10],[3,3]], poeple = [3,3,2]
+Output: [2,2,1]
+Explanation: The figure above shows the times when the flowers are in full bloom and when the people arrive.
+For each person, we return the number of flowers in full bloom during their arrival.
+
+/**
+ * @param {number[][]} flowers
+ * @param {number[]} people
+ * @return {number[]}
+ */
+var fullBloomFlowers = function(flowers, people) {
+  let startArr=flowers.map(v=>v[0]).sort((a,b) => a-b)
+    let endArr=flowers.map(v=>v[1]).sort((a,b) => a-b)
+    return people.map(time=>lessThanEqualTo(time,startArr)-lessThanEqualTo(time-1,endArr))
+
+    function lessThanEqualTo(target,arr){
+        let [i,j]=[0,arr.length-1],mid,ans=Number.MIN_SAFE_INTEGER
+
+        while(i<=j){
+            mid=i+~~((j-i)/2)
+            if(arr[mid]<=target) i=mid+1
+            else j=mid-1
+        }
+        return i
+    }  
+};
+
+
+
+https://leetcode.com/problems/number-of-flowers-in-full-bloom/?envType=daily-question&envId=2023-10-11
