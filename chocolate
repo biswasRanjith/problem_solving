@@ -1,0 +1,26 @@
+circulate the last char of the untill str2 and str1 are equal
+
+str = 'chocolate'
+str2 = 'olatechoc'
+
+
+function chocolate(str1, str2){
+  if(str1.length === str2.length){
+	var count = 0;
+	while(count != str1.length){
+	  count++;
+	   const lastChar = str2[str2.length - 1]
+        str2 = str2.substring(0, str2.length - 1);
+	  str2 =  lastChar+ str2
+	  if(str2 === str1){
+	  return count;
+	  }
+	}
+	return count
+  }else{
+	return 0
+  }
+  
+}
+
+console.log(chocolate(str, str2));
