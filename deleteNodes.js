@@ -49,3 +49,6 @@ var modifiedList = function (nums, head) {
     return res.next;
 
 };
+
+
+//https://leetcode.com/problems/delete-nodes-from-linked-list-present-in-array/?envType=daily-question&envId=2024-09-06
