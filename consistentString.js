@@ -32,13 +32,14 @@ let words = ["ad","bd","aaab","baa","badab"]
  */
 var countConsistentStrings = function(allowed, words) {
     let count = 0;
-    for(let j =0; j<words.length ; j++)
+    for(let j=0;j<words.length;j++)
         {
-        let a = words[j].split('');
-         let b = true;
-        for(let i of a){
+            let a=words[j].split('');
+         let b=true;
+        for(let i of a)
+            {
            
-            if(!allowed.includes(i));
+            if(!allowed.includes(i))
             {
                 b = false;
                
