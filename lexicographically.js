@@ -69,3 +69,24 @@ var answerString = function(word, numFriends) {
 console.log(answerString("dbca", 2)); // Output: "dbc"
 console.log(answerString("gggg", 4)); // Output: "g"
 console.log(answerString("abcd", 3)); // Output: "cde"
+
+
+// // Assuming db methods return Promises or are promisified using util.promisify
+
+// async function handleDataFlow() {
+//   try {
+//     let data = await db.getData();
+//     data.a = "test";
+//     data.b = 1111;
+
+//     data = await db.processData(data);
+    
+//     await db.saveData(data);
+
+//     console.log("finished");
+//   } catch (err) {
+//     console.error(err);
+//   }
+// }
+
+// handleDataFlow();
