@@ -26,6 +26,10 @@ function FindIntersection(strArr) {
   }
   return s.toString(); 
 
+
+//    var result = strArr2.filter(x => strArr1.find(a => a === x))
+//   return result.length > 0 ? result.join(',') : 'false'
+
 }
    
 // keep this function call here 
