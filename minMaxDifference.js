@@ -52,7 +52,7 @@ var minMaxDifference = function(num) {
 
 //// Example usage:
 console.log(minMaxDifference(11891)); // Output: 99009
-console.log(minMaxDifference(90));    // Output: 99 
+console.log(minMaxDifference(90));    // Output: 99     
 
 /*
 Approach
