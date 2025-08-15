@@ -47,4 +47,7 @@ var largestGoodInteger = function(num) {
 // Example usage
 console.log(largestGoodInteger("6777133339")); // Output: "777"
 console.log(largestGoodInteger("2300019"));   // Output: "000"
-console.log(largestGoodInteger("42352338"));  // Output: ""
+console.log(largestGoodInteger("42352338"));  // Output: "" 
+console.log(largestGoodInteger("111222333")); // Output: "333"
+console.log(largestGoodInteger("000000"));     // Output: "000"
+console.log(largestGoodInteger("123456789")); // Output: ""
