@@ -15,5 +15,6 @@ function reverse(input){
 
     return returnData.join(',')
 }
+// Example usage:
 
 console.log(reverse(input));
